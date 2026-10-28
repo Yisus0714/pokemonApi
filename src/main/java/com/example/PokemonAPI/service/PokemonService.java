@@ -24,9 +24,6 @@ public class PokemonService {
         return pokemonRepository.save(pokemon);
     }
 
-    public void eliminar(Long id){
-        pokemonRepository.deleteById(id);
-    }
     public Optional<Pokemon> actualizar(Long id, Pokemon pokemon){
         return pokemonRepository.findById(id).map(recursoexist -> {
             recursoexist.setNombre(pokemon.getNombre());
@@ -52,4 +49,8 @@ public class PokemonService {
 
         });
     }
+    public void eliminarPokemon(Long id) {
+        pokemonRepository.deleteById(id);
+    }
+
 }

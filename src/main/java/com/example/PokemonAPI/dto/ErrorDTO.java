@@ -1,0 +1,17 @@
+package com.example.PokemonAPI.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ErrorDTO {
+    private String mnesaje;
+    private List<String> detalles;
+    private LocalDateTime fecha;
+}
