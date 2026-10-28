@@ -1,5 +1,6 @@
 package com.example.PokemonAPI.service;
 
+import com.example.PokemonAPI.exception.ResourceNotFoundException;
 import com.example.PokemonAPI.model.Pokemon;
 import com.example.PokemonAPI.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class PokemonService {
     }
 
     public Pokemon obtenerPorId(Long id){
-        return pokemonRepository.findById(id).orElse(null);
+        return pokemonRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("El pokemon no existe"));
     }
 
     public Pokemon crear(Pokemon pokemon){
